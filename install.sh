@@ -17,10 +17,10 @@ cp Include/cs.h ../include/
 ###################
 
 # remove binary if installed
-#sudo apt-get remove libopenblas-base
+sudo apt-get remove libopenblas-base
 
-#cd /tmp/
-#git clone https://github.com/xianyi/OpenBLAS.git
-#cd OpenBLAS
-#make NO_AFFINITY=1 USE_OPENMP=1
-#sudo make install
+cd /tmp/
+git clone https://github.com/xianyi/OpenBLAS.git
+cd OpenBLAS
+make NO_AFFINITY=1 USE_OPENMP=1
+sudo make install

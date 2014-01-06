@@ -437,11 +437,11 @@ size_t NN_maxdim(NN_Matrix* A)
 
 NN_Matrix* NN_submatrix_sp(cs* A, int r_left, int r_right, int c_left, int c_right)
 {
-	csi m,n,*Ap,*Ai;
-	double *Ax;
+	csi m,n; //,*Ap,*Ai;
+	//double *Ax;
 	NN_Matrix* B=NULL;
 	int newM, newN;
-	m = A->m;	n = A->n;	Ap = A->p;	Ai = A->i;	Ax = A->x;
+	m = A->m;	n = A->n;//	Ap = A->p;	Ai = A->i;	Ax = A->x;
 
 	newM = r_right-r_left+1;
 	newN = c_right-c_left+1;
@@ -485,10 +485,10 @@ NN_Matrix* NN_submatrix(NN_Matrix* A, int r_left, int r_right, int c_left, int c
 	m=A->nrows;	n=A->ncols;
 	if((r_left<0 || r_right>=m) || (c_left<0 || c_right>=n))	NN_error("NN_submatrix: indexing out of bounds");
 
-	size_t newM,newN,size;
+	size_t newM,newN; //,size;
 	newM = r_right-r_left+1;
 	newN = c_right-c_left+1;
-	size=newM*newN;
+	//size=newM*newN;
 
 	NN_Matrix* B = NN_init_matrix(newM,newN);
 
@@ -654,7 +654,7 @@ cs* NN_load_spdata(FILE* fp)
 
 void NN_error(const char *err_msg)
 {
-	fprintf(stdout, err_msg);
+	fprintf(stdout, "%s", err_msg);
 	fprintf(stdout, "\n");
 	exit(-1);
 }

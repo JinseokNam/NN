@@ -2,9 +2,11 @@ CC = gcc
 CFLAGS = -g -Wall -fopenmp -O3
 
 CSPARSE_PATH = CSparse
+OPENBLAS_PATH = /opt/OpenBLAS
+
 OBJECTS = NN_utils.o NN_math.o NN_core.o AE.o train_AE.o
-INCFLAGS = -I $(CSPARSE_PATH)/Include
-LDFLAGS = -L$(CSPARSE_PATH)/Lib
+INCFLAGS = -I $(OPENBLAS_PATH)/include -I $(CSPARSE_PATH)/Include
+LDFLAGS = -L$(OPENBLAS_PATH)/lib -L$(CSPARSE_PATH)/Lib
 LIBS = -lopenblas -lcsparse -fopenmp
 TARGET = trainae
 

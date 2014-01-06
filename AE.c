@@ -6,10 +6,10 @@ void AE(NN_Matrix* W, NN_Matrix* hb, NN_Matrix* vb,
 		element *cost, NN_Matrix *dW, NN_Matrix *dhb, NN_Matrix *dvb,
 		AE_interim *tmp_vars)
 {
-	size_t sz_M,sz_D,sz_F;
-	sz_D = x->nrows;
+	size_t sz_M; //,sz_D,sz_F;
+	//sz_D = x->nrows;
 	sz_M = x->ncols;
-	sz_F = W->nrows;
+	//sz_F = W->nrows;
 
 	// Define temporary variables
 	NN_Matrix *A1 	= tmp_vars->A1;

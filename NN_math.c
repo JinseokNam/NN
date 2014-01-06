@@ -90,11 +90,11 @@ NN_Matrix* mul_dmsmi(const element alpha, NN_Matrix* A, cs* B, const element bet
 	if(A->ncols != B->m)	NN_error("mul_dmsmi: Dimension mismatch");
 
 	unsigned int i,j;
-	size_t m,k,n;
+	size_t m,n; //,k;
 	csi p,*Bp,*Bi;
 	double *Bx;
 	element *Adp,*Cdp;
-	m=A->nrows;	k=A->ncols;	n=B->n;
+	m=A->nrows;	n=B->n; //k=A->ncols;
 	Bp=B->p;	Bi=B->i;	Bx=B->x;	Adp=A->data;	Cdp=C->data;
 
 	for(j=0;j<n;j++) {
@@ -425,8 +425,8 @@ NN_Matrix* add_col_vec(element alpha, NN_Matrix* A, unsigned int* col_idx, size_
 		B: d x L
 	*/
 	unsigned int i;
-	size_t Am,An,Bm,Bn,m;
-	Am=A->nrows;	An=A->ncols;	Bm=B->nrows;	Bn=B->ncols;
+	size_t Am,An,Bm,m; //,Bn;
+	Am=A->nrows;	An=A->ncols;	Bm=B->nrows;//	Bn=B->ncols;
 	if(Am!=Bm || An!=nIndices)		NN_error("add_col_vec: Dimension mismatch");
 	m=Am;
 	//if(col_idx<0 || col_idx>=An)	NN_error("add_col_vec: col_idx out of bounds");

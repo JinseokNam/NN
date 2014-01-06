@@ -251,14 +251,6 @@ int main(int argc, char *argv[])
 			eta_vb = NN_muli(NN_powi(NN_sqrt(adaGrad_vb),-1),eta_base);	eta_vb=NN_infinity_to_zero(eta_vb);
 			vb = addi(-1,elemwise_mmi(dvb,eta_vb),1,vb);	NN_free(eta_vb);	
 			//printf("Done a parameter update\n");
-/*
-			grad_W=iadd_vv(momentum,dW,1-momentum,grad_W,F*D);
-			grad_hb=iadd_vv(momentum,dhb,1-momentum,grad_hb,F);
-			grad_vb=iadd_vv(momentum,dvb,1-momentum,grad_vb,D);
-			W = iadd_vv(-eta_base,grad_W,1,W,F*D);		NN_free(dW);
-			hb = iadd_vv(-eta_base,grad_hb,1,hb,F);		NN_free(dhb);
-			vb = iadd_vv(-eta_base,grad_vb,1,vb,D);		NN_free(dvb);
-*/
 		}
 
 		// compute averaged cost

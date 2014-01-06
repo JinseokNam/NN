@@ -57,7 +57,7 @@ void print_help(char *prg_name)
 int main(int argc, char *argv[])
 {
 	unsigned int pass,sample_idx,end_sample_idx,i;
-	size_t D,M,F;
+	size_t D,M,F=-1;
 	FILE *fp;
 	bool verbose = true;
 	bool is_normalize = false;

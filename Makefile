@@ -1,32 +1,11 @@
-CC = gcc
-CFLAGS = -g -Wall -fopenmp -O3
+all: library train_ae
 
-CSPARSE_PATH = CSparse
-OPENBLAS_PATH = /opt/OpenBLAS
+library:
+	( cd lib ; $(MAKE) )
 
-OBJECTS = NN_utils.o NN_math.o NN_core.o AE.o train_AE.o
-INCFLAGS = -I $(OPENBLAS_PATH)/include -I $(CSPARSE_PATH)/Include
-LDFLAGS = -L$(OPENBLAS_PATH)/lib -L$(CSPARSE_PATH)/Lib
-LIBS = -lopenblas -lcsparse -fopenmp
-TARGET = trainae
-
-all: train_ae
-
-train_ae: $(OBJECTS)
-    $(CC) -o $(TARGET) $(OBJECTS) $(LDFLAGS) $(LIBS)
-
-.SUFFIXES:
-.SUFFIXES:  .c .cc .C .cpp .o
-
-.c.o :
-    $(CC) -o $@ -c $(CFLAGS) $< $(INCFLAGS)
-
-count:
-    wc *.c *.cc *.C *.cpp *.h *.hpp
+train_ae: 
+	( cd demo ; $(MAKE) )
 
 clean:
-    rm -f *.o
-
-.PHONY: all
-.PHONY: count
-.PHONY: clean
+	( cd lib ; $(MAKE) clean )
+	( cd demo ; $(MAKE) clean )

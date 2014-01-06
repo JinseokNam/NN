@@ -9,6 +9,8 @@ wget https://www.cise.ufl.edu/research/sparse/CSparse/CSparse.tar.gz
 tar xvzf CSparse.tar.gz
 cd CSparse
 make library
+cp Lib/libcsparse.a ../../lib/
+cp Include/cs.h ../../include/
 
 ###################
 # Install OpenBLAS

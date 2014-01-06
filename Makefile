@@ -13,19 +13,19 @@ TARGET = trainae
 all: train_ae
 
 train_ae: $(OBJECTS)
-	$(CC) -o $(TARGET) $(OBJECTS) $(LDFLAGS) $(LIBS)
+    $(CC) -o $(TARGET) $(OBJECTS) $(LDFLAGS) $(LIBS)
 
 .SUFFIXES:
-.SUFFIXES:	.c .cc .C .cpp .o
+.SUFFIXES:  .c .cc .C .cpp .o
 
 .c.o :
-	$(CC) -o $@ -c $(CFLAGS) $< $(INCFLAGS)
+    $(CC) -o $@ -c $(CFLAGS) $< $(INCFLAGS)
 
 count:
-	wc *.c *.cc *.C *.cpp *.h *.hpp
+    wc *.c *.cc *.C *.cpp *.h *.hpp
 
 clean:
-	rm -f *.o
+    rm -f *.o
 
 .PHONY: all
 .PHONY: count

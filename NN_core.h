@@ -3,15 +3,15 @@
 
 #include "NN_utils.h"
 struct _parameters {
-	element **weights;
-	element **biases;
+    element **weights;
+    element **biases;
 };
 typedef struct _parameters NN_params;
 
 struct _gradients {
-	element cost;
-	element **dW;
-	element **dB;
+    element cost;
+    element **dW;
+    element **dB;
 };
 typedef struct _gradients NN_grads;
 
